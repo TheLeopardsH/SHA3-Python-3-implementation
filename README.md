@@ -5,9 +5,11 @@ This code has clean and easy to understand the implementation of SHA-3 Cryptogra
 
 ![SHA-3 High Level Overview](https://github.com/TheLeopardsH/SHA3-Python-3-/blob/master/SHA3.png)
 
+There are four levels of security in SHA-3 as follows
 
-Type        Output Length     Rate (r)         Capacity (c)
-SHA3-224           224            1152              448
-SHA3-256           256            1088              512
-SHA3-384           384             832              768
-SHA3-512           512             576             1024
+| Type        |  Output Length   |  Rate (r)     |    Capacity (c)   |
+| ----------- |  --------------- | ------------- |  ---------------  | 
+| SHA3-224    |       224        |    1152       |       448         |
+| SHA3-256    |       256        |    1088       |       512         |
+| SHA3-384    |       384        |     832       |       768         |
+| SHA3-512    |       512        |     576       |      1024         |
