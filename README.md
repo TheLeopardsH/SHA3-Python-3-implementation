@@ -13,3 +13,15 @@ There are four levels of security in SHA-3 as follows
 | SHA3-256    |       256        |    1088       |       512         |
 | SHA3-384    |       384        |     832       |       768         |
 | SHA3-512    |       512        |     576       |      1024         |
+
+Stage 1:
+       Stage 1 is Padding stage
+       
+Stage 2:
+       Stage 2 is State size
+ 
+Stage 3:
+       Stage 3 is Aborbing phase
+       
+Stage 4:
+       Stage 4 is Squeezing phase
