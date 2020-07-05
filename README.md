@@ -1,7 +1,7 @@
 Note:code is under development
 # SHA3-Python-3-
 Python 3 code for SHA-3 cryptographic algorithm
-This code has clean and easy to understand the implementation of SHA-3 Cryptographic Algorithm.Comments are done to make it easier to understand for someone who is new to SHA-3 and python
+This code has clean and easy to understand the implementation of SHA-3 Cryptographic Algorithm.Comments are done to make it easier to understand for someone who is new to SHA-3 and python.SHA-3 falls under sponge functions while sha-0,sha-1,sha-2 and MD-5 hash functions fall under Merkle Damgard construction.
 
 Note:It's still under progress
 
