@@ -27,3 +27,10 @@ Stage 3:
        
 Stage 4:
        Stage 4 is Squeezing phase
+
+
+# The F-Function Of SHA-3
+The f-Function of SHA-3 Consists of 5 theta,rho,pi,chi and iota.
+## Theta:
+        Each of 1600 state bits are replaced by the XOR sum of 11 bits:
+        (The original bit) XOR (5 bit column "to the left" of the bit) XOR  (5 bit column "to the right"  and one position "to the front" of the bit).
