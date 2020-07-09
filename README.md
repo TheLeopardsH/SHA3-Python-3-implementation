@@ -30,7 +30,15 @@ Stage 4:
 
 
 # The F-Function Of SHA-3
-The f-Function of SHA-3 Consists of 5 theta,rho,pi,chi and iota.
+The f-Function of SHA-3 Consists of 5 sub-Functions which are theta,rho,pi,chi and iota.
+In order to understand these 5 sub_functions,we divide the input 1600 bits state into 5x5 matrix and each one of the matrix has 64 bits(64 bit register=1 word) making it 5x5x64.
+
 ## Theta:
         Each of 1600 state bits are replaced by the XOR sum of 11 bits:
         (The original bit) XOR (5 bit column "to the left" of the bit) XOR  (5 bit column "to the right"  and one position "to the front" of the bit).
+## rho:
+     Each word is rotated by a fixed number of position by a fixed table.
+     
+## pi:
+     We Permutate the 64 bit words locations in 5x5 matrix.
+      
