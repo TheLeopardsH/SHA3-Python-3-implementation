@@ -19,13 +19,14 @@ print(rounds+' Rounds in SHA-3')
 
 def theta(A):
         A_out = np.zeros((5,5,64), dtype = int)  # Initialize empty 5x5x64 array
+       #A_out = [[[0 for _ in range(64)] for _ in range(5)] for _ in range(5)] #without numpy
         for i in range(5):
                 for j in range(5):
                         for k in range(64):
-                                C=sum([A[i-1][ji][k] for ji in range(5)]) % 2 # XOR=mod2 5 bit column "to the left" of the original bit
-                                D=sum([A[((i+1) % 5)][ji][k-1] for ji in range(5)]) % 2 #XOR=mod2 5 bit column "to the right"  and one position "to the front" of the original bit
-                                temp=C+D+A[i][j][k] % 2 #XORing original bit with A and B
-                                A_out[i][j][k]=temp
+                            C=sum([A[i-1][ji][k] for ji in range(5)]) % 2 # XOR=mod2 5 bit column "to the left" of the original bit
+                            D=sum([A[((i+1) % 5)][ji][k-1] for ji in range(5)]) % 2 #XOR=mod2 5 bit column "to the right"  and one position "to the front" of the original bit
+                            temp=C+D+A[i][j][k] % 2 #XORing original bit with A and B
+                            A_out[i][j][k]=temp
         return A_out
 
 #Rho : Each word is rotated by a fixed number of position according to table.
@@ -47,3 +48,12 @@ def pi(A):
             for k in range(64):
                 A_out[j][(2*i+3*j)%5][k] = A[i][j][k]
     return A_out
+# A_out [i][j][k] = A[i][j][k] XOR ( (A[i + 1][j][k] XOR 1) AND (ain[i + 2][j][k]) )
+def chi(A):
+    A_out = np.zeros((5,5,64), dtype = int) # Initialize empty 5x5x64 array
+    for i in range(5):
+        for j in range(5):
+            for k in range(64):
+                A_out = (A[i][j][k]+(((A[(i + 1)%5][j][k] + 1 )% 2) * (A[(i + 2)%5][j][k]))) % 2
+    return A_out
+
