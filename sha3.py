@@ -61,3 +61,11 @@ def chi(A):
                 A_out = (A[i][j][k]+(((A[(i + 1)%5][j][k] + 1 )% 2) * (A[(i + 2)%5][j][k]))) % 2
     return A_out
 
+# 5x5x64 (three-dimensional array) into 1600 bits(one-dimensional array)
+def _3Dto1D(A):
+    A_out = np.zeros(1600, dtype = int) # Initialize empty array of size 1600
+    for i in range(5):
+        for j in range(5):
+            for k in range(64):
+                A_out[64*(5*j+i)+k] = A[i][j][k]
+    return A_out
