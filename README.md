@@ -41,4 +41,12 @@ In order to understand these 5 sub_functions,we divide the input 1600 bits state
      
 ## pi:
      We Permutate the 64 bit words locations in 5x5 matrix.
+  
+ 
+##  chi:
+       
+      A_out [i][j][k] = A[i][j][k] XOR ( (A[i + 1][j][k] XOR 1) AND (ain[i + 2][j][k]) )
+    
+## iota:
+      Add constants  to word (0,0)
       
