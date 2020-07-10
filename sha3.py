@@ -52,6 +52,7 @@ def pi(A):
             for k in range(64):
                 A_out[j][(2*i+3*j)%5][k] = A[i][j][k]
     return A_out
+
 # A_out [i][j][k] = A[i][j][k] XOR ( (A[i + 1][j][k] XOR 1) AND (ain[i + 2][j][k]) )
 def chi(A):
     A_out = np.zeros((5,5,64), dtype = int) # Initialize empty 5x5x64 array
@@ -60,6 +61,26 @@ def chi(A):
             for k in range(64):
                 A_out = (A[i][j][k]+(((A[(i + 1)%5][j][k] + 1 )% 2) * (A[(i + 2)%5][j][k]))) % 2
     return A_out
+
+#iota: add constants  to word (0,0)
+# aout[i][j][k] = ain[i][j][k] ⊕ bit[i][j][k]
+# for 0 ≤ ℓ ≤ 6, we have bit[0][0][2ℓ − 1] = rc[ℓ + 7ir]
+def iota(A, round):
+    # Initialize empty arrays
+    A_out = A.copy()
+    bit = np.zeros((5,5,64), dtype=int)
+    rc = np.zeros((168), dtype=int)
+
+    #generation of rc as Linear Feedback Shift Register
+    w = np.array([1,0,0,0,0,0,0,0], dtype = int)
+    rc[0] = w[0]
+    for i in range(1, 168): #7*24
+        w = [w[1],w[2],w[3],w[4],w[5],w[6],w[7], (w[0]+w[4]+w[5]+w[6]) % 2]
+        rc[i] = w[0]
+
+    # Calculate A_out
+    for l in range(7):
+        A_out[0][0][2**l - 1] = (A[0][0][2**l - 1] + rc[l + 7*round])% 2
 
 # 5x5x64 (three-dimensional array) into 1600 bits(one-dimensional array)
 def _3Dto1D(A):
