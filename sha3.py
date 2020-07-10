@@ -69,3 +69,13 @@ def _3Dto1D(A):
             for k in range(64):
                 A_out[64*(5*j+i)+k] = A[i][j][k]
     return A_out
+
+# 24 X (ι ◦ χ ◦ π ◦ ρ ◦ θ)
+def SHA3(SHA_in):
+    length=len(SHA_in)
+    A_3D = _1Dto3D(SHA_in)
+    for r in range(24):
+        SHA_out_3D = iota(chi(pi(rho(theta(A_3D)))), r)
+    SHA_out = _3Dto1D(SHA_out_3D)
+    return SHA_out
+
