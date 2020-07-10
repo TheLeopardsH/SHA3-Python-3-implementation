@@ -11,10 +11,14 @@ print(rounds+' Rounds in SHA-3')
 # So SHA-3 has state size of 1600 bits and the number of rounds of computations will be 24
 
 
-
-
-
-
+# 1600 bits(1 dimensional array) to 3 dimensional array of 5x5x64
+def _1Dto3D(A):
+    A_out = np.zeros((5, 5, 64), dtype = int) # Initialize empty 5x5x64 array
+    for i in range(5):
+        for j in range(5):
+            for k in range(64):
+                A_out[i][j][k] = A[64*(5*j + i) + k]
+    return A_out
 
 
 def theta(A):
