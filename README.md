@@ -28,6 +28,9 @@ Stage 3:
 Stage 4:
        Stage 4 is Squeezing phase
 
+## Padding:
+(For sha-256)The input M to the hash algorithm SHA-3 is padded with 10∗1, i.e. two 1’s and as many 0’s in between (possibly none) until the padded length is a multiple of 1088 (= 1600−512). You must append at least two 1’s, with as many 0’s in between (possibly none) so that the padded length is a multiple of 1088.
+
 
 # The F-Function Of SHA-3
 The f-Function of SHA-3 Consists of 5 sub-Functions which are theta,rho,pi,chi and iota.
