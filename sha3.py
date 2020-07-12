@@ -80,7 +80,7 @@ def iota(A, round):
 
     # Calculate A_out
     for l in range(7):
-        A_out[0][0][2**l - 1] = (A[0][0][2**l - 1] + rc[l + 7*round])% 2
+        A_out[0][0][2**l - 1] ^=rc[l + 7*round])
 
 # 5x5x64 (three-dimensional array) into 1600 bits(one-dimensional array)
 def _3Dto1D(A):
