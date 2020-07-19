@@ -27,8 +27,8 @@ def theta(A):
         for i in range(5):
                 for j in range(5):
                         for k in range(64):
-                            C=sum([A[i-1][ji][k] for ji in range(5)]) % 2 # XOR=mod2 5 bit column "to the left" of the original bit
-                            D=sum([A[((i+1) % 5)][ji][k-1] for ji in range(5)]) % 2 #XOR=mod2 5 bit column "to the right"  and one position "to the front" of the original bit
+                            C=sum([A[(i-1)%5][ji][k] for ji in range(5)]) % 2 # XOR=mod2 5 bit column "to the left" of the original bit
+                            D=sum([A[((i+1) % 5)][ji][(k-1)%64] for ji in range(5)]) % 2 #XOR=mod2 5 bit column "to the right"  and one position "to the front" of the original bit
                             temp=C+D+A[i][j][k] % 2 #XORing original bit with A and B
                             A_out[i][j][k]=temp
         return A_out
